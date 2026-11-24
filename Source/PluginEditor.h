@@ -2,6 +2,14 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
+class R2RMetalLookAndFeel : public juce::LookAndFeel_V4
+{
+public:
+    void drawRotarySlider(juce::Graphics&, int x, int y, int width, int height,
+                          float sliderPos, float rotaryStartAngle, float rotaryEndAngle,
+                          juce::Slider&) override;
+};
+
 class DJR2ROpticalTubeCompressorAudioProcessorEditor : public juce::AudioProcessorEditor, private juce::Timer
 {
 public:
@@ -13,6 +21,7 @@ public:
 private:
     void timerCallback() override { repaint(); }
     DJR2ROpticalTubeCompressorAudioProcessor& audioProcessor;
+    R2RMetalLookAndFeel metalLook;
     juce::Slider peak, gain, warmth;
     juce::ComboBox mode;
     juce::Label peakLabel, gainLabel, warmthLabel, modeLabel;
