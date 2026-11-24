@@ -28,6 +28,8 @@ juce_add_plugin(DJR2ROpticalTubeCompressor
     COPY_PLUGIN_AFTER_BUILD TRUE
 )
 
+juce_generate_juce_header(DJR2ROpticalTubeCompressor)
+
 target_sources(DJR2ROpticalTubeCompressor PRIVATE
     Source/PluginProcessor.cpp
     Source/PluginProcessor.h
