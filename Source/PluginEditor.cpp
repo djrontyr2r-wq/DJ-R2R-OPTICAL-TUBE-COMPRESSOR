@@ -167,7 +167,7 @@ void DJR2ROpticalTubeCompressorAudioProcessorEditor::paint(Graphics& g)
     g.drawText("COMPRESSOR  /  LIMITER", 320, 320, 330, 25, Justification::centred);
     g.setColour(Colour(0xff9e3026)); g.fillRect(22, 492, 916, 3);
     g.setColour(Colour(0xff242628)); g.fillRect(12, 497, 936, 25);
-    g.setColour(Colour(0xfff2eee5)); g.setFont(Font(10.0f,Font.bold));
+    g.setColour(Colour(0xfff2eee5)); g.setFont(Font(10.0f,Font::bold));
     g.drawText("DJ R2R MUSIC   •   VINTAGE OPTO CHARACTER   •   BUILT FOR THE STUDIO",
                260, 498, 440, 20, Justification::centred);
 }
