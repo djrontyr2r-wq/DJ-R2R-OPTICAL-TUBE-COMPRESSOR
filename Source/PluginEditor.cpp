@@ -36,7 +36,6 @@ void R2RMetalLookAndFeel::drawRotarySlider(Graphics& g, int x, int y, int w, int
                cy - std::cos(angle)*r*0.78f, 3.0f);
     g.setColour(Colour(0xfff0e9dc));
     g.setFont(Font(11.0f, Font::bold));
-    g.drawText(String(Slider::getSliderSnapsToMousePosition()), x, y, 1, 1, Justification::centred);
 }
 
 DJR2ROpticalTubeCompressorAudioProcessorEditor::DJR2ROpticalTubeCompressorAudioProcessorEditor(DJR2ROpticalTubeCompressorAudioProcessor& p)
@@ -139,7 +138,7 @@ void DJR2ROpticalTubeCompressorAudioProcessorEditor::paint(Graphics& g)
     const float radius = 112.0f;
     const float a0 = MathConstants<float>::pi * 1.20f;
     const float a1 = MathConstants<float>::pi * 1.80f;
-    Path arc; arc.addArc(c.x-radius,c.y-radius,c.x+radius,c.y+radius,a0,a1,true);
+    Path arc; arc.addArc(c.x-radius,c.y-radius,radius*2.0f,radius*2.0f,a0,a1,true);
     g.setColour(Colour(0xff382719)); g.strokePath(arc, PathStrokeType(2.0f));
     for (int i=0;i<=10;++i)
     {
