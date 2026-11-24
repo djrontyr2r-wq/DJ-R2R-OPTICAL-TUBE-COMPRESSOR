@@ -1,0 +1,29 @@
+name: Build Windows VST3
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Configure x64
+        run: cmake -S . -B build -A x64
+      - name: Build VST3
+        run: cmake --build build --config Release --parallel
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: DJ-R2R-Optical-Tube-Compressor-Windows-x64
+          path: |
+            build/**/*.vst3/**
+            build/**/Release/*.vst3/**
+          if-no-files-found: warn
